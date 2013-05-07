@@ -82,8 +82,6 @@ public class Dice {
 	//.Rolls the selected die
 	public int[] rollDice() {
 		Collections.sort(selectedDie);
-		for(String item : selectedDie)
-			System.out.println(item);
 		int[] results = new int[selectedDie.size()]; 
 		int counterForResults = 0;
 		for(String item : selectedDie)
