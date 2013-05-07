@@ -22,7 +22,7 @@ public class Dice {
 	//.Fields parallel arrays to facilitate shorter coding as well as to check the selected dice against it's sides
 	private String[] diceString = {"d4" , "d6" , "d8" , "d10" , "d12" , "d20"};
 	private int[] diceSides = {4 , 6 , 8 , 10 , 12 , 20}; 
-	private ArrayList<String> selectedDie = new ArrayList<>();
+	private ArrayList<String> selectedDice = new ArrayList<>();
 	private int numberOfDice;
 	
 	//.Constructors to set the dice from there or have no selected dice by default
@@ -32,7 +32,7 @@ public class Dice {
 	public Dice(String selectedDie) {
 		for (int i = 0; i < diceSides.length; i++) 
 			if(this.diceString[i].equals(selectedDie.toLowerCase())) {
-				this.selectedDie.add(selectedDie.toLowerCase());
+				this.selectedDice.add(selectedDie.toLowerCase());
 				break;
 			}
 	}
@@ -44,7 +44,7 @@ public class Dice {
 			String choice = s.next().toLowerCase(); //.------>Change this line of code to match whatever input you are using<------.//
 			for(int j = 0 ; j < this.diceString.length ; j++)
 				if(this.diceString[j].equals(choice))
-					this.selectedDie.add(choice);					
+					this.selectedDice.add(choice);					
 		}
 	}
 	
@@ -58,10 +58,10 @@ public class Dice {
 	
 	//.sets the selected Dice to the proper and needed die ONLY ONE DIE
 	public void setSelectedDice(String selectedDie) {
-		if(this.selectedDie.contains(selectedDie) == true)
+		if(this.selectedDice.contains(selectedDie) == true)
 			for (int i = 0; i < this.diceSides.length; i++) 
 				if(this.diceString[i].equals(selectedDie.toLowerCase())) {
-					this.selectedDie.add(selectedDie.toLowerCase());
+					this.selectedDice.add(selectedDie.toLowerCase());
 					break;
 				}
 	}
@@ -72,15 +72,15 @@ public class Dice {
 			String choice = s.next().toLowerCase(); //.------>Change this line of code to match whatever input you are using<------.//
 			for(int j = 0 ; j < this.diceString.length ; j++)
 				if(this.diceString[j].equals(choice))
-					this.selectedDie.add(choice);					
+					this.selectedDice.add(choice);					
 		}
 	}
 	
 	public String[] getSelectedDie() {
-		Collections.sort(this.selectedDie);
-		String[] result = new String[this.selectedDie.size()];
+		Collections.sort(this.selectedDice);
+		String[] result = new String[this.selectedDice.size()];
 		int i = 0;
-		for (String string : this.selectedDie) {
+		for (String string : this.selectedDice) {
 			result[i++] = string;
 		}
 		return result;
@@ -88,10 +88,10 @@ public class Dice {
 	
 	//.Rolls the selected die
 	public int[] rollDice() {
-		Collections.sort(this.selectedDie);
-		int[] results = new int[this.selectedDie.size()]; 
+		Collections.sort(this.selectedDice);
+		int[] results = new int[this.selectedDice.size()]; 
 		int counterForResults = 0;
-		for(String item : selectedDie)
+		for(String item : selectedDice)
 			for (int i = 0; i < this.diceSides.length; i++) 
 				if(item.equals(this.diceString[i]))
 					results[counterForResults++] = r.nextInt(this.diceSides[i]) + 1;
@@ -100,7 +100,7 @@ public class Dice {
 	
 	//.Removes all the dice from the selectedDie Array List field 
 	public void resetDice() {
-		this.selectedDie.removeAll(this.selectedDie);
+		this.selectedDice.removeAll(this.selectedDice);
 	}
 	
 	//.Gets a percent if needed (acts as a 10 sided die essentially returning "00,10,20,etc."
