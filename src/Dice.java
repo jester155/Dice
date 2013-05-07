@@ -71,7 +71,7 @@ public class Dice {
 	//.Use if the user needs to or wants to use more than one die
 	public void setMultipleDice() {
 		for(int i = 0 ; i < this.numberOfDice ; i++) {
-			String choice = s.next();
+			String choice = s.next(); //.Change this line of code to match whatever input you are using
 			for(int j = 0 ; j < this.diceString.length ; j++) {
 				if(this.diceString[j].equals(choice))
 					this.selectedDie.add(choice);					
@@ -108,7 +108,7 @@ public class Dice {
 		return 0;
 	}
 	
-	//.Essentially acts as flipping a coin, returns 0 for "heads" or 1 for "tails"
+	//.Essentially acts as coin, returns 0 for "heads" or 1 for "tails"
 	public boolean flipCoin() {
 		if(r.nextInt(2) == 0)
 			return true;
