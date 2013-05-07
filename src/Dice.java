@@ -71,7 +71,7 @@ public class Dice {
 	//.Use if the user needs to or wants to use more than one die
 	public void setMultipleDice() {
 		for(int i = 0 ; i < this.numberOfDice ; i++) {
-			String choice = s.next(); //.Change this line of code to match whatever input you are using
+			String choice = s.next(); //.Change this line of code to match whatever input you are using<------
 			for(int j = 0 ; j < this.diceString.length ; j++) {
 				if(this.diceString[j].equals(choice))
 					this.selectedDie.add(choice);					
