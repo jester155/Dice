@@ -8,14 +8,14 @@
  */
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Arrays;//.<----Not used but left for those who need it when changing the code.//
 import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
 
 public class Dice {
-	//.Pubilicly used object references
+	//.Publicly used object references
 	private Random r = new Random();
 	private Scanner s = new Scanner(System.in);
 	
