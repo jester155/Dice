@@ -1,4 +1,8 @@
-
+/*
+ * Created by jester155
+ * This is a sample program of how to use my dice class
+ * This code is fully commented and should be easy enough to use in your application
+ */
 public class SampleProgram {
 
 	/**
@@ -13,9 +17,11 @@ public class SampleProgram {
 		dice.setMultipleDice();//.Asks the user to put in tree dice in the console
 		
 		int[] results = dice.rollDice();//.Gets the results of rolling the dice and puts it into an array
-		
-		for(int item : results)//.Loops to display all the results to the console.
-			System.out.println(item);
+		String[] diceToUse = dice.getSelectedDie();
+		for (int i = 0; i < diceToUse.length; i++) {//.Loops to display all the results to the console.
+			System.out.print(diceToUse[i] + ": ");//.Gets the dice that the user input
+			System.out.println(results[i]); //.Shows the result of each dice rolled.
+		}
 
 	}
 
