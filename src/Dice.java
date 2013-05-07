@@ -28,7 +28,7 @@ public class Dice {
 	//.Constructors to set the dice from there or have no selected dice by default
 	public Dice() {	}
 	
-	//.SETS FOR ONLY ONE DIE
+	//.SETS FOR ONLY ONE DIE CONSTRUCTOR
 	public Dice(String selectedDie) {
 		for (int i = 0; i < diceSides.length; i++) 
 			if(diceString[i].equals(selectedDie.toLowerCase())) {
@@ -37,15 +37,14 @@ public class Dice {
 			}
 	}
 	
-	//.Sets the number of dice to use as well as asks the user which dice to use
+	//.Sets the number of dice to use as well as asks the user which dice to use CONSTRUCTOR
 	public Dice(int numberOfDice) {
 		this.numberOfDice = numberOfDice;
 		for(int i = 0 ; i < this.numberOfDice ; i++) {
 			String choice = s.next(); //.------>Change this line of code to match whatever input you are using<------.//
-			for(int j = 0 ; j < this.diceString.length ; j++) {
+			for(int j = 0 ; j < this.diceString.length ; j++)
 				if(this.diceString[j].equals(choice))
 					this.selectedDie.add(choice);					
-			}
 		}
 	}
 	
@@ -59,23 +58,21 @@ public class Dice {
 	
 	//.sets the selected Dice to the proper and needed die ONLY ONE DIE
 	public void setSelectedDice(String selectedDie) {
-		if(this.selectedDie.contains(selectedDie) == true) {
+		if(this.selectedDie.contains(selectedDie) == true)
 			for (int i = 0; i < diceSides.length; i++) 
 				if(diceString[i].equals(selectedDie.toLowerCase())) {
 					this.selectedDie.add(selectedDie.toLowerCase());
 					break;
 				}
-		}
 	}
 	
 	//.Use if the user needs to or wants to use more than one die
 	public void setMultipleDice() {
 		for(int i = 0 ; i < this.numberOfDice ; i++) {
 			String choice = s.next(); //.------>Change this line of code to match whatever input you are using<------.//
-			for(int j = 0 ; j < this.diceString.length ; j++) {
+			for(int j = 0 ; j < this.diceString.length ; j++)
 				if(this.diceString[j].equals(choice))
 					this.selectedDie.add(choice);					
-			}
 		}
 	}
 	
@@ -88,7 +85,7 @@ public class Dice {
 			for (int i = 0; i < diceSides.length; i++) 
 				if(item.equals(diceString[i]))
 					results[counterForResults++] = r.nextInt(diceSides[i]) + 1;
-			return results;	
+		return results;	
 	}
 	
 	//.Removes all the dice from the selectedDie Array List field 
@@ -98,14 +95,7 @@ public class Dice {
 	
 	//.Gets a percent if needed (acts as a 10 sided die essentially returning "00,10,20,etc."
 	public int getPercent() {
-		int percent = r.nextInt(11);
-		for(int i = 0 ; i < 10 ; i++) {
-			if(percent == i) {
-				return percent * 10;
-			}
-				
-		}
-		return 0;
+		return r.nextInt(11) * 10;
 	}
 	
 	//.Essentially acts as coin, returns 0 for "heads" or 1 for "tails"
