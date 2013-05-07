@@ -4,6 +4,7 @@
  * Can be used in any existing java project
  * Programmed specifically in jre7
  * Code written by Jester155
+ * For Shana
  */
 import java.util.Random;
 
