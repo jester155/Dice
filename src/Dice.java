@@ -20,9 +20,9 @@ public class Dice {
 	private Scanner s = new Scanner(System.in);
 	
 	//.Fields parallel arrays to facilitate shorter coding as well as to check the selected dice against it's sides
-	private String[] diceString = {"d4" , "d6" , "d8" , "d10" , "d12" , "d20"};
+	private String[] diceName= {"d4" , "d6" , "d8" , "d10" , "d12" , "d20"};
 	private int[] diceSides = {4 , 6 , 8 , 10 , 12 , 20}; 
-	private ArrayList<String> selectedDice = new ArrayList<>();
+	private ArrayList<String> selectedDice = new ArrayList<String>();
 	private int numberOfDice;
 	
 	//.Constructors to set the dice from there or have no selected dice by default
@@ -31,7 +31,7 @@ public class Dice {
 	//.SETS FOR ONLY ONE DIE CONSTRUCTOR
 	public Dice(String selectedDie) {
 		for (int i = 0; i < diceSides.length; i++) 
-			if(this.diceString[i].equals(selectedDie.toLowerCase())) {
+			if(this.diceName[i].equals(selectedDie.toLowerCase())) {
 				this.selectedDice.add(selectedDie.toLowerCase());
 				break;
 			}
@@ -42,8 +42,8 @@ public class Dice {
 		this.numberOfDice = numberOfDice;
 		for(int i = 0 ; i < this.numberOfDice ; i++) {
 			String choice = s.next().toLowerCase(); //.------>Change this line of code to match whatever input you are using<------.//
-			for(int j = 0 ; j < this.diceString.length ; j++)
-				if(this.diceString[j].equals(choice))
+			for(int j = 0 ; j < this.diceName.length ; j++)
+				if(this.diceName[j].equals(choice))
 					this.selectedDice.add(choice);					
 		}
 	}
@@ -60,7 +60,7 @@ public class Dice {
 	public void setSelectedDice(String selectedDie) {
 		if(this.selectedDice.contains(selectedDie) == true)
 			for (int i = 0; i < this.diceSides.length; i++) 
-				if(this.diceString[i].equals(selectedDie.toLowerCase())) {
+				if(this.diceName[i].equals(selectedDie.toLowerCase())) {
 					this.selectedDice.add(selectedDie.toLowerCase());
 					break;
 				}
@@ -70,8 +70,8 @@ public class Dice {
 	public void setMultipleDice() {
 		for(int i = 0 ; i < this.numberOfDice ; i++) {
 			String choice = s.next().toLowerCase(); //.------>Change this line of code to match whatever input you are using<------.//
-			for(int j = 0 ; j < this.diceString.length ; j++)
-				if(this.diceString[j].equals(choice))
+			for(int j = 0 ; j < this.diceName.length ; j++)
+				if(this.diceName[j].equals(choice))
 					this.selectedDice.add(choice);					
 		}
 	}
@@ -80,9 +80,8 @@ public class Dice {
 		Collections.sort(this.selectedDice);
 		String[] result = new String[this.selectedDice.size()];
 		int i = 0;
-		for (String string : this.selectedDice) {
+		for (String string : this.selectedDice)
 			result[i++] = string;
-		}
 		return result;
 	}
 	
@@ -93,7 +92,7 @@ public class Dice {
 		int counterForResults = 0;
 		for(String item : selectedDice)
 			for (int i = 0; i < this.diceSides.length; i++) 
-				if(item.equals(this.diceString[i]))
+				if(item.equals(this.diceName[i]))
 					results[counterForResults++] = r.nextInt(this.diceSides[i]) + 1;
 		return results;	
 	}
